@@ -6,7 +6,7 @@ import { IoIosArrowForward } from 'react-icons/io'
 import logo from '../assets/logo.png'
 
 const isNotActiveStyle = 'mt-2 flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize'
-const isActiveStyle = 'mt-2 flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out capitalize'
+const isActiveStyle = 'mt-2 flex items-center px-5 gap-3 font-extrabold transition-all duration-200 ease-in-out capitalize'
 
 const categories = [
     { name: 'Animals' },
@@ -14,6 +14,7 @@ const categories = [
     { name: 'Photography' },
     { name: 'Gaming' },
     { name: 'Coding' },
+    { name: 'Other' },
 ]
 
 const Sidebar = ({ user, closeToggle }) => {
@@ -23,13 +24,13 @@ const Sidebar = ({ user, closeToggle }) => {
     return (
         <div className='flex flex-col justify-between h-full overflow-y-scroll bg-white hide-scrollbar'>
             <div className='flex flex-col'>
-                {/* <Link
+                <Link
                     to='/'
-                    className='flex gap-2 px-5 pt-1 my-6'
+                    className='flex gap-2'
                     onClick={handleCloseSidebar}
-                > */}
-                <img src={logo} alt="logo" className='w-32 mt-3 mb-5 ml-3' />
-                {/* </Link> */}
+                >
+                    <img src={logo} alt="logo" className='w-32 mt-3 mb-5 ml-3' />
+                </Link>
 
                 <div className='flex flex-col gap-5'>
                     <NavLink
@@ -62,7 +63,7 @@ const Sidebar = ({ user, closeToggle }) => {
                     className='flex items-center gap-2 p-3 bg-white'
                     onClick={handleCloseSidebar}
                 >
-                    <img src={user.image} alt="User image"
+                    <img src={user.image} alt="User"
                         className='w-10 h-10 rounded-full '
                     />
                     <p>{user.userName}</p>
