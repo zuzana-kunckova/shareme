@@ -5,17 +5,10 @@ import { IoIosArrowForward } from 'react-icons/io'
 
 import logo from '../assets/logo.png'
 
+import { categories } from '../utils/data'
+
 const isNotActiveStyle = 'mt-2 flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize'
 const isActiveStyle = 'mt-2 flex items-center px-5 gap-3 font-extrabold transition-all duration-200 ease-in-out capitalize'
-
-const categories = [
-    { name: 'Animals' },
-    { name: 'Wallpaper' },
-    { name: 'Photography' },
-    { name: 'Gaming' },
-    { name: 'Coding' },
-    { name: 'Other' },
-]
 
 const Sidebar = ({ user, closeToggle }) => {
     const handleCloseSidebar = () => {
