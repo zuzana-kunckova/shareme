@@ -30,7 +30,7 @@ const Home = () => {
     })
 
     return (
-        <div className='flex flex-col h-screen duration-75 ease-out bg-gray-50 md:flex-row transition-height'>
+        <div className='flex flex-col min-h-screen duration-75 ease-out bg-gray-50 md:flex-row transition-height'>
             <div className='hidden h-screen md:flex'>
                 <Sidebar user={user && user} />
             </div>
@@ -48,7 +48,7 @@ const Home = () => {
                     </Link>
 
                     <Link to={`user-profile/${user?._id}`}>
-                        <img src={user?.image} alt="logo" className='rounded-lg w-9' referrerPolicy="no-referrer" />
+                        <img src={user?.image} alt="logo" className='rounded-lg w-9' rel="noreferrer" />
                     </Link>
                 </div>
 

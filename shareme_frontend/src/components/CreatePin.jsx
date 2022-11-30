@@ -93,7 +93,7 @@ const CreatePin = ({ user }) => {
                         className='flex flex-col items-center justify-center w-full p-3 border-2 border-gray-300 border-dotted lg:p-5 h-96'
                     >
                         {loading && (<Spinner />)}
-                        {wrongImageType && (<p>Wrong image type</p>)}
+                        {wrongImageType && (<p className='text-red-500'>Wrong image type</p>)}
                         {!imageAsset ? (
                             <label>
                                 <div
@@ -206,19 +206,6 @@ const CreatePin = ({ user }) => {
                                 ))}
                             </select>
                         </div>
-
-                        {/* {user && (
-                            <div className='flex items-center gap-2 my-2 bg-white rounded-lg'>
-                                <img
-                                    src={user.image}
-                                    alt="user-profile"
-                                    className='w-10 h-10 rounded-full'
-                                />
-                                <p>
-                                    {user.userName}
-                                </p>
-                            </div>
-                        )} */}
 
                         <div
                             className='flex items-end justify-end mt-5'

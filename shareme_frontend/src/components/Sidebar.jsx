@@ -15,7 +15,7 @@ const Sidebar = ({ user, closeToggle }) => {
         if (closeToggle) closeToggle(false)
     }
     return (
-        <div className='flex flex-col justify-between h-full overflow-y-scroll bg-white hide-scrollbar'>
+        <div className='flex flex-col justify-between w-64 h-full overflow-y-scroll bg-white hide-scrollbar'>
             <div className='flex flex-col'>
                 <Link
                     to='/'
