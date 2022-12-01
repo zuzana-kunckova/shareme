@@ -1,12 +1,14 @@
 import React from 'react';
 import { GoogleLogin } from '@react-oauth/google';
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import video from '../assets/share.mp4';
 import logo from '../assets/logowhite.png';
 import { client } from '../client';
 import jwt_decode from 'jwt-decode';
 
 const Login = () => {
+    const navigate = useNavigate();
+
     const responseGoogle = (response) => {
         const userResponse = jwt_decode(response.credential);
 
@@ -21,7 +23,7 @@ const Login = () => {
         }
 
         client.createIfNotExists(doc).then(() => {
-            redirect('/')
+            navigate('/', { replace: true })
         });
     }
 

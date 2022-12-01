@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, redirect } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import Home from './container/Home';
 import Login from './components/Login';
@@ -9,10 +9,12 @@ import { fetchUser } from './utils/fetchUser';
 
 
 function App() {
+    const navigate = useNavigate()
+
     useEffect(() => {
         const user = fetchUser()
 
-        if (!user) redirect('/login')
+        if (!user) navigate('/login')
     }, [])
 
     return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { AiOutlineCloudUpload } from 'react-icons/ai'
 import { MdDelete } from 'react-icons/md'
-import { redirect } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { client } from '../client'
 import Spinner from './Spinner'
@@ -17,6 +17,8 @@ const CreatePin = ({ user }) => {
     const [category, setCategory] = useState(null)
     const [imageAsset, setImageAsset] = useState(null)
     const [wrongImageType, setWrongImageType] = useState(false)
+
+    const navigate = useNavigate();
 
     const uploadImage = (e) => {
         const { type, name } = e.target.files['0']
@@ -63,7 +65,7 @@ const CreatePin = ({ user }) => {
 
             client.create(doc)
                 .then(() => {
-                    redirect('/')
+                    navigate('/')
                 })
         } else {
             setFields(true)
