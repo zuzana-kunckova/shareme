@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { AiOutlineLogout } from 'react-icons/ai'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, redirect } from 'react-router-dom'
 import { googleLogout } from '@react-oauth/google'
 
 import { userCreatedPinsQuery, userQuery, userSavedPinsQuery } from '../utils/data'
@@ -17,13 +17,12 @@ const UserProfile = () => {
     const activeBtnStyles = 'bg-red-300 font-bold p-2 rounded-full w-28 outline-dashed'
     const notActiveBtnStyles = 'font-bold p-2 rounded-full w-28 outline-dashed'
 
-    const navigate = useNavigate();
     const { userId } = useParams();
 
     const clearUser = () => {
         localStorage.clear()
 
-        navigate('/login')
+        redirect('/login')
     }
 
     const randomImg = 'https://source.unsplash.com/1600x900/?nature,photography,technology'

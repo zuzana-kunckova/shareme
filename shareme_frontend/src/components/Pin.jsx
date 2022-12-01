@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { urlFor, client } from '../client'
 
-import { Link, Navigate, useNavigate, useRevalidator } from 'react-router-dom'
+import { Link, redirect } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 import { MdDownloadForOffline } from 'react-icons/md'
 import { AiTwotoneDelete } from 'react-icons/ai'
@@ -11,7 +11,6 @@ import { fetchUser } from '../utils/fetchUser'
 
 const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
     const [postHovered, setPostHovered] = useState(false)
-    const navigate = useNavigate()
     const user = fetchUser()
     const alreadySaved = save?.filter((item) => item?.postedBy?._id === user?.sub)
     const savePin = (id) => {
@@ -47,7 +46,7 @@ const Pin = ({ pin: { postedBy, image, _id, destination, save } }) => {
             <div
                 onMouseEnter={() => setPostHovered(true)}
                 onMouseLeave={() => setPostHovered(false)}
-                onClick={() => navigate(`/pin-detail/${_id}`)}
+                onClick={() => redirect(`/pin-detail/${_id}`)}
                 className="relative w-auto overflow-hidden transition-all duration-500 ease-in-out rounded-lg cursor-zoom-in hover:shadow-lg"
             >
                 <img src={urlFor(image).width(250).url()} alt="user-post" className='w-full rounded-lg' />
