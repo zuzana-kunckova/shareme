@@ -2,6 +2,7 @@
   "name": "shareme_frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/",
   "dependencies": {
     "@react-oauth/google": "^0.4.0",
     "@sanity/client": "^3.4.1",
