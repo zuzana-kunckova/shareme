@@ -195,7 +195,9 @@ const PinDetail = ({ user }) => {
                         <MasonryLayout pins={pins} />
                     </>
                 ) : (
-                    <Spinner message='Loading more pins' />
+                    <div
+                        className='flex justify-center mt-10 text-2xl font-semibold'
+                    >No more pins like this 😔</div>
                 )
             }
         </>
