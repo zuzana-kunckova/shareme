@@ -31,7 +31,7 @@ const PinDetail = ({ user }) => {
                     }
                 })
         }
-    })
+    }, [pinId])
 
     useEffect(() => {
         fetchPinDetails()
