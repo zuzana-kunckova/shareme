@@ -35,7 +35,7 @@ const PinDetail = ({ user }) => {
 
     useEffect(() => {
         fetchPinDetails()
-    }, [pinId])
+    }, [fetchPinDetails, pinId])
 
     const addComment = () => {
         if (comment) {
