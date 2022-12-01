@@ -33,6 +33,10 @@ const PinDetail = ({ user }) => {
         }
     }
 
+    useEffect(() => {
+        fetchPinDetails()
+    }, [pinId])
+
     const addComment = () => {
         if (comment) {
             setAddingComment(true)
@@ -45,7 +49,7 @@ const PinDetail = ({ user }) => {
                     _key: uuidv4(),
                     postedBy: {
                         _type: 'postedBy',
-                        _ref: user.sub
+                        _ref: user._id
                     }
                 }])
                 .commit()
@@ -57,27 +61,20 @@ const PinDetail = ({ user }) => {
         }
     }
 
-    useEffect(() => {
-        fetchPinDetails()
-    }, [pinId])
-
     if (!pinDetail) return <Spinner message="Loading Pin ..." />
 
     return (
         <>
             <div
-                className='flex flex-col m-auto bg-white xl:flex-row rounded-br-3xl rounded-tr-3xl'
-                style={{
-                    maxWidth: '1500px', boxRadius: '32px'
-                }}
+                className='flex flex-col m-auto bg-white xl:flex-row rounded-3xl'
             >
                 <div
-                    className='flex items-center justify-center flex-initial md:items-start'
+                    className='flex items-center justify-center flex-initial p-5 md:items-start'
                 >
                     <img
                         src={pinDetail?.image && urlFor(pinDetail.image).url()}
                         alt="user-post"
-                        className='max-w-md rounded-bl-3xl rounded-tl-3xl'
+                        className='max-w-md mr-12 rounded-3xl'
                     />
                 </div>
 
@@ -130,35 +127,31 @@ const PinDetail = ({ user }) => {
                     </div>
 
 
-                    <h2
-                        className='mt-5 text-2xl'
-                    >Comments</h2>
+                    <h2 className='mt-5 text-2xl'>Comments</h2>
 
-                    {/* <div
+                    <div
                         className='overflow-y-auto max-h-370'
                     >
-                        {pinDetail?.comments?.map((comment, i) => {
+                        {pinDetail?.comments?.map((comment, i) => (
                             <div
                                 className='flex items-center gap-2 mt-5 bg-white rounded-lg'
                                 key={i}
                             >
                                 <img
-                                    src={comment.postedBy.image}
+                                    src={comment.postedBy?.image}
                                     alt="user-profile"
                                     className='w-10 h-10 rounded-full cursor-pointer'
                                 />
                                 <div
                                     className='flex flex-col'
                                 >
-                                    <p className='font-bold'>
-                                        {comment.postedBy.user.name}
-                                    </p>
+                                    <p className='font-bold'>{comment.postedBy?.userName}</p>
 
                                     <p>{comment.comment}</p>
                                 </div>
                             </div>
-                        })}
-                    </div> */}
+                        ))}
+                    </div>
 
                     <div
                         className='flex flex-wrap items-center gap-3 mt-6'
