@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { MdDownloadForOffline } from 'react-icons/md'
 import { Link, useParams } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
@@ -15,7 +15,7 @@ const PinDetail = ({ user }) => {
     const [addingComment, setAddingComment] = useState(false)
     const { pinId } = useParams()
 
-    const fetchPinDetails = () => {
+    const fetchPinDetails = useCallback(() => {
         let query = pinDetailQuery(pinId)
 
         if (query) {
@@ -31,7 +31,7 @@ const PinDetail = ({ user }) => {
                     }
                 })
         }
-    }
+    })
 
     useEffect(() => {
         fetchPinDetails()
