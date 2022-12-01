@@ -75,12 +75,12 @@ const UserProfile = () => {
                         <img
                             src={randomImg}
                             className='object-cover w-full shadow-lg h-96'
-                            alt="banner-pic" />
+                            alt="banner" />
 
                         <img
                             src={user.image}
                             className='object-cover w-20 h-20 -mt-10 rounded-full shadow-xl'
-                            alt="user image"
+                            alt="user"
                         />
 
                         <h1

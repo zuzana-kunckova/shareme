@@ -46,7 +46,7 @@ const Sidebar = ({ user, closeToggle }) => {
                         >
                             <img
                                 src={category.image}
-                                alt="category image"
+                                alt="category"
                                 className='w-8 h-8 rounded-full shadow-sm'
                             />
                             {category.name}
@@ -65,6 +65,7 @@ const Sidebar = ({ user, closeToggle }) => {
                         className='w-10 h-10 rounded-full '
                     />
                     <p>{user.userName}</p>
+                    <IoIosArrowForward />
                 </Link>
             )}
         </div>
