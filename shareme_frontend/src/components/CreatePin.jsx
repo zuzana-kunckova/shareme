@@ -156,24 +156,27 @@ const CreatePin = ({ user }) => {
                         type="text"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        placeholder='Add your title'
+                        placeholder='Add your title *'
                         className='p-2 text-base border-b-2 border-gray-200 outline-none'
+                        required="required"
                     />
 
                     <input
                         type="text"
                         value={about}
                         onChange={(e) => setAbout(e.target.value)}
-                        placeholder='What is your pin about'
+                        placeholder='What is your pin about *'
                         className='p-2 text-base border-b-2 border-gray-200 outline-none'
+                        required="required"
                     />
 
                     <input
                         type="text"
                         value={destination}
                         onChange={(e) => setDestination(e.target.value)}
-                        placeholder='Add a destination link'
+                        placeholder='Add a destination link including https:// *'
                         className='p-2 text-base border-b-2 border-gray-200 outline-none'
+                        required="required"
                     />
 
                     <div className='flex flex-col mt-10'>
@@ -181,7 +184,7 @@ const CreatePin = ({ user }) => {
                             <p
                                 className='mb-2 font-semibold'
                             >
-                                Choose Pin Category
+                                Choose Pin Category *
                             </p>
 
                             <select
@@ -206,6 +209,8 @@ const CreatePin = ({ user }) => {
                                 ))}
                             </select>
                         </div>
+
+                        <span className='mt-16 text-sm text-gray-500'>* All fields are required</span>
 
                         <div
                             className='flex items-end justify-end mt-5'
